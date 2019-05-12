@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Задание 1 - Сложение двух чисел</title>
+<style>
+
+form {
+  float: left;
+  width: 200px;
+  border:1px solid #2d416d;
+}
+
+.inputnum {
+margin-left: 10px;
+margin-top: 10px;
+}
+
+#answer {
+float: left;
+margin-top: 200px;
+}
+    </style>
+	
+</head>
+<body>
+<form>
+<div class="inputnum">
+<label for="number1" style="font-weight: bold">Первое число:</label><br>
+<input type="text" name="number1" id="number1" value="0.1" />
+</div><br>
+<div class="inputnum">
+<label for="number2" style="font-weight: bold">Второе число:</label><br>
+<input type="text" name="number2" id="number2" value="0.2" />
+</div><br>
+<input type="button" class="inputnum" value="Сложить" id="actionButton" />
+</form>
+<div id="answer">
+<div id="mySum">
+</div>
+</div>
+<script id="rendered-js">
+no1 = document.getElementById('number1');
+no2 = document.getElementById('number2');
+mySum = document.getElementById('mySum');
+button = document.getElementById('actionButton');
+
+button.onclick = addNumbers;
+
+function addNumbers() {
+  var a = getNumberA();
+  var b = getNumberB();
+
+  var c = (a + b).toFixed(1);
+  postSumToPage(c);
+}
+
+function getNumberA() {
+  var a = parseFloat(no1.value);
+  return a;
+}
+
+function getNumberB() {
+  var b = parseFloat(no2.value);
+  return b;
+}
+
+function postSumToPage(c) {
+  var answer = c.toString();
+  mySum.innerHTML = "<h4>Результат:</h4>" + answer;
+}
+    </script>
+</body>
+</html>
